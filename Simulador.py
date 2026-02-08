@@ -1,8 +1,6 @@
 #importando as bibliotecas
-
 import pygame
 import math
-
 from pygame.locals import *
 from sys import exit
 
@@ -10,7 +8,6 @@ from sys import exit
 pygame.init()
 
 #Variaveis
-
 altura = 680
 largura = 680
 pi = math.pi
@@ -72,10 +69,11 @@ def pista_simples():
     gera_arco(620, 222, (0, -1))
     gera_arco(620, 378, (1, 0))
 
-
+frame = pygame.time.Clock()
 
 #Loop principal da simulação
 while True:
+    frame.tick(60)
     tela.fill((0, 0, 0))
     for event in pygame.event.get():
         if event.type == QUIT:
