@@ -1,7 +1,5 @@
 #importando as bibliotecas
 
-import pygame
-import math
 
 from pygame.locals import *
 from sys import exit
@@ -19,6 +17,12 @@ p = 0
 while p not in [1, 2]:
     p = int(input("Digite o numero do pista [1 ou 2]: "))
 
+
+import pygame
+import math
+from pygame.locals import *
+from sys import exit
+
 #iniciando o pygame
 pygame.init()
 
@@ -30,12 +34,15 @@ pi = math.pi
 
 tela = pygame.display.set_mode((largura, altura))
 
-
 nome = "Simulador"
 pygame.display.set_caption(nome)
 frame = pygame.time.Clock()
 
+nome = "Simulador"
+pygame.display.set_caption(nome)
 
+
+frame = pygame.time.Clock()
 
 #Loop principal da simulação
 while True:
@@ -46,10 +53,16 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
+
     if p ==1:
         pistas.pista_simples(tela)
-    elif p ==2:
+    elif p == 2:
         pistas.pista_circular(tela)
 
 
     pygame.display.update()
+
+
+
+
+
