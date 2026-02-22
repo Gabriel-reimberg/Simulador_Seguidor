@@ -1,49 +1,53 @@
+#---------------------------------------------------------------------
+"""
+Projeto pessoal com o objetivo de desenvolver um simulador para testes de
+logica e algoritimos PID para implementação em um robo seguidor de linhna.
+
+Nome: Gabriel Pires Reimberg
+Curso: Engenharia de controle e automação
+
+Ano: 2026
+"""
+#---------------------------------------------------------------------
 #importando as bibliotecas
-
-
-from pygame.locals import *
-from sys import exit
-
-import pistas
-
-
-print("="*20)
-print("== Olá, bem vindo ==")
-print("="*20)
-
-#Variaveis importantes antes de iniciar
-p = 0
-
-while p not in [1, 2]:
-    p = int(input("Digite o numero do pista [1 ou 2]: "))
-
 
 import pygame
 import math
 from pygame.locals import *
 from sys import exit
+import pistas
+import robo
 
-#iniciando o pygame
+#---------------------------------------------------------------------
+#Inicio/Escolhendo a pista
+print("="*20)
+print("== Olá, bem vindo ==")
+print("="*20)
+p = 0
+while p not in [1, 2]:
+    p = int(input("Digite o numero do pista [1 ou 2]: "))
+
+
+#---------------------------------------------------------------------
+#Iniciando o pygame
 pygame.init()
 
-#Variaveis
 
+#---------------------------------------------------------------------
+#Variaveis
 altura = 680
 largura = 680
 pi = math.pi
+nome = "Simulador"
 
+#---------------------------------------------------------------------
+#Definindo a tela
 tela = pygame.display.set_mode((largura, altura))
-
-nome = "Simulador"
 pygame.display.set_caption(nome)
 frame = pygame.time.Clock()
 
-nome = "Simulador"
-pygame.display.set_caption(nome)
 
-
-frame = pygame.time.Clock()
-
+#---------------------------------------------------------------------
 #Loop principal da simulação
 while True:
     frame.tick(60)
@@ -54,13 +58,22 @@ while True:
             pygame.quit()
             exit()
 
+
     if p ==1:
         pistas.pista_simples(tela)
     elif p == 2:
         pistas.pista_circular(tela)
 
+    robo.corpo(tela,  350, 450)
+
+
 
     pygame.display.update()
+#Fim
+#---------------------------------------------------------------------
+
+
+
 
 
 
