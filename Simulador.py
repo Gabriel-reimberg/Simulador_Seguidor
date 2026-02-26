@@ -24,8 +24,8 @@ print("="*20)
 print("== Olá, bem vindo ==")
 print("="*20)
 p = 0
-while p not in [1, 2]:
-    p = int(input("Digite o numero do pista [1 ou 2]: "))
+while p not in [1, 2, 3]:
+    p = int(input("Digite o numero do pista [1, 2 ou 3]: "))
 
 
 #---------------------------------------------------------------------
@@ -58,15 +58,12 @@ while True:
             pygame.quit()
             exit()
 
-
     if p ==1:
-        pistas.pista_simples(tela)
+        pistas.pista_1(tela)
     elif p == 2:
-        pistas.pista_circular(tela)
-
-    robo.corpo(tela,  350, 450)
-
-
+        pistas.pista_2(tela)
+    elif p == 3:
+        pistas.pista_3(tela)
 
     pygame.display.update()
 #Fim
